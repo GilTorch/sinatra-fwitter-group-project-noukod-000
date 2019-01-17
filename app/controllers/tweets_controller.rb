@@ -14,6 +14,11 @@ class TweetsController < ApplicationController
     erb :"tweets/new"
   end
 
+  get "/tweets/:id/edit" do 
+    @tweet=Tweet.find_by_id(@params[:id])
+    erb :"tweets/edit_tweet"
+  end
+
   get "/tweets/:id" do
     if logged_in?
       @tweet=Tweet.find_by_id(@params[:id])
