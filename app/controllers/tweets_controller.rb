@@ -26,7 +26,7 @@ class TweetsController < ApplicationController
 
   post "/tweets" do
     #binding.pry
-    @tweet=Tweet.create({content:@params[:content]})
+    @tweet=Tweet.create({content:@params[:twitter][:content]})
     binding.pry
     if @tweet.valid?
       current_user.tweets << @tweet
