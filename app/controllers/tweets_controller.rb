@@ -14,13 +14,14 @@ class TweetsController < ApplicationController
     erb :"tweets/new"
   end
 
-  get "/tweets/:id" do 
+  get "/tweets/:id" do
+    @tweet=Tweet.find_by_id(@params[:id])
     erb :"tweets/show_tweet"
   end
 
   post "/tweets" do
-    @tweet=Tweet.create({content:@params[:tweet][:content]})
-    if @tweet.valid?
+    tweet=Tweet.create({content:@params[:tweet][:content]})
+    if tweet.valid?
       redirect "/tweets/#{@tweet.id}"
     end
   end
