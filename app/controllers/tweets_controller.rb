@@ -22,8 +22,14 @@ class TweetsController < ApplicationController
     end
   end
 
-  delete "/tweets" do
-
+  delete "/tweets/:id" do
+    @tweet=Tweet.find_by_id(@params[:id])
+    if @tweet.nil?
+      redirect("/")
+    else 
+      @tweet.delete 
+      redirect("/tweets/#{@tweet.id}")
+    end
   end
 
   get "/tweets/new" do
