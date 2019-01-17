@@ -10,6 +10,22 @@ class TweetsController < ApplicationController
     end
   end
 
+  post "/tweets" do
+    #binding.pry
+    @tweet=Tweet.create({content:@params[:tweet][:content]})
+
+    if @tweet.valid?
+      current_user.tweets << @tweet
+      redirect "/tweets/#{@tweet.id}"
+    else
+      redirect "/tweets/new"
+    end
+  end
+
+  delete "/tweets/:id" do 
+    
+  end
+
   get "/tweets/new" do
     erb :"tweets/new"
   end
@@ -46,16 +62,5 @@ class TweetsController < ApplicationController
 
   end
 
-  post "/tweets" do
-    #binding.pry
-    @tweet=Tweet.create({content:@params[:tweet][:content]})
-
-    if @tweet.valid?
-      current_user.tweets << @tweet
-      redirect "/tweets/#{@tweet.id}"
-    else
-      redirect "/tweets/new"
-    end
-  end
 
 end
