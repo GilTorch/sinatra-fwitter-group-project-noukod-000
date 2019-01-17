@@ -22,8 +22,8 @@ class TweetsController < ApplicationController
     end
   end
 
-  delete "/tweets/:id" do 
-    
+  delete "/tweets" do
+
   end
 
   get "/tweets/new" do
