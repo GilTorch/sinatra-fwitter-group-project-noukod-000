@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
       redirect("/")
     else
       @tweet.delete
-      redirect("/tweets/#{@tweet.id}")
+      redirect("/tweets")
     end
   end
 
