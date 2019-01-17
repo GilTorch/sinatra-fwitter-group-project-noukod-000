@@ -1,7 +1,7 @@
 <h1>Welcome, <%= current_user.username %></h1>
 <h2>The Latest Tweets</h2>
-<ol>
+<ul>
 <% @tweets.each do |tweet| %>
   <li><a href="/tweets/<%=tweet.id%>"><%=tweet.content%></a></li>
 <% end %>
-</ol>
+</ul>
