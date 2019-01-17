@@ -27,13 +27,13 @@ class TweetsController < ApplicationController
 
   end
 
-  patch "/tweets/:id" do
+  patch "/tweets/:id" do 
     @tweet=Tweet.find_by_id(@params[:id])
     @tweet.content=@params[:tweet][:content]
-    @tweet.save
+    @tweet.save 
 
     redirect "/tweets/#{@params[:id]}"
-
+    
   end
 
   get "/tweets/:id" do
@@ -49,7 +49,7 @@ class TweetsController < ApplicationController
   post "/tweets" do
     #binding.pry
     @tweet=Tweet.create({content:@params[:tweet][:content]})
-    binding.pry
+
     if @tweet.valid?
       current_user.tweets << @tweet
       redirect "/tweets/#{@tweet.id}"
