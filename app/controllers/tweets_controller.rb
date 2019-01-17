@@ -14,4 +14,11 @@ class TweetsController < ApplicationController
     erb :"tweets/new"
   end
 
+  post "/tweets" do 
+    @tweet=Tweet.create({content:@params[:tweet][:content]})
+    if @tweet.valid? 
+      redirect "/tweets/#{@tweet.id}"
+    end
+  end
+
 end
