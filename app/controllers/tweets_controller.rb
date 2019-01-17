@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
     if @tweet.valid?
       current_user.tweets << @tweet
       redirect "/tweets/#{@tweet.id}"
-    else 
+    else
       redirect "/tweets/new"
     end
   end
