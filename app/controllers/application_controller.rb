@@ -34,8 +34,9 @@ class ApplicationController < Sinatra::Base
   post "/login" do
     # binding.pry
     user = User.find_by(:username => @params[:user][:username])
-    binding.pry
+    
    if user && user.authenticate(@params[:user][:password])
+     binding.pry
      session[:user_id] = user.id
      redirect("/tweets")
    else
