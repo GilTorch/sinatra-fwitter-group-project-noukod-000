@@ -20,7 +20,7 @@ class TweetsController < ApplicationController
 
       if current_user.tweets.include?(@tweet)
         erb :"tweets/edit_tweet"
-      else 
+      else
         redirect "/"
       end
     end
