@@ -25,8 +25,9 @@ class TweetsController < ApplicationController
   end
 
   post "/tweets" do
-    tweet=Tweet.create({content:@params[:tweet][:content]})
+    @tweet=Tweet.create({content:@params[:tweet][:content]})
     if tweet.valid?
+      current_user << @tweet
       redirect "/tweets/#{@tweet.id}"
     end
   end
