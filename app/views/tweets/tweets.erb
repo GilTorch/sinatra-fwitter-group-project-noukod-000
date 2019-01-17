@@ -2,6 +2,6 @@
 <h2>The Latest Tweets</h2>
 <ol>
 <% @tweets.each do |tweet| %>
-  <li><a href="/tweets/<%=tweet.id"></a><%=tweet.content%></li>
+  <li><a href="/tweets/<%=tweet.id"><%=tweet.content%></a></li>
 <% end %>
 </ol>
