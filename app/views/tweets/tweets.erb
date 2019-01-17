@@ -1,5 +1,7 @@
 <h1>Welcome, <%= current_user.username %></h1>
 <h2>The Latest Tweets</h2>
+<ol>
 <% @tweets.each do |tweet| %>
-  <%=tweet.content%>
+  <li><%=tweet.content%></li>
 <% end %>
+</ol>
