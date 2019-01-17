@@ -26,8 +26,8 @@ class TweetsController < ApplicationController
     @tweet=Tweet.find_by_id(@params[:id])
     if @tweet.nil?
       redirect("/")
-    else 
-      @tweet.delete 
+    else
+      @tweet.delete
       redirect("/tweets/#{@tweet.id}")
     end
   end
